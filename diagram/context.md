@@ -22,17 +22,17 @@
 <br><br><br>
 
 # 3. System Requirements Specification
-## 1) Functional Requirements (개조식 + 간단한 설명)
+## 1) Functional Requirements
  - a) 정영훈
-## 2) Non-Functional Requirements (개조식 + 간단한 설명)
+## 2) Non-Functional Requirements
  - a) 정영훈
 ## 3) Use-case Diagram
- - ![]()
+ - ![](https://github.com/GC211SE/document/blob/master/diagram/usecase.png?raw=true)
 
 
 <br><br><br>
 
 # 4. System Models
 
-## - 앱 activity diagram
-- ![]()
+## - Activity diagram
+- ![](https://github.com/GC211SE/document/blob/master/diagram/activity.png?raw=true)
