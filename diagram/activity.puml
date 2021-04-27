@@ -1,0 +1,90 @@
+@startuml activity
+
+skinparam conditionStyle diamond
+
+|Mobile or Web App|
+|Server with Database|
+|#AliceBlue|Gachon University Homepage|
+
+
+|Mobile or Web App|
+start
+:Open app (Splash);
+
+repeat
+    if (have user ID and Password) then
+    
+    else (Don't have any data) 
+        :**Log In View**;
+        :Get user's ID and Password;
+    endif
+
+    :Check ID and Password is valid;
+        
+    |Gachon University Homepage|
+    :Try to log in to\nGachon University homepage;
+
+    |Mobile or Web App|
+    :Receive result data;
+repeat while (invalid)
+-> valid;
+
+repeat
+    split
+
+        :**Setting View**;
+        split
+            :User account setting;
+        split again
+            :Manage starred\nclassroom;
+        split again
+            :Look up previous\nreservation log;
+        end split
+
+    split again
+
+        :**Home View**;
+        if () then (empty)
+            :Search bar \nto find classroom;
+        else (Starred classroom is exist)
+            :Request Classroom data;
+            |Server with Database|
+            if ()
+            else (Timetable data was expired)
+                :Request all data of timetable;
+                |Gachon University Homepage|
+                :Crawl all timetable data;
+                |Server with Database|
+                :Refine timetable data and save to database;
+            endif
+            :Search and push classroom data;
+            |Mobile or Web App|
+            :Show list of\nstarrd classroom's status;
+        endif
+        :Touch classroom;
+        :**Reservation view**\nShow classroom's timetable\nwith reservation status;
+        :Select classroom to reserve;
+        :Set time how many use the classroom;
+        :Request enroll reservation;
+        |Server with Database|
+        :Enroll reservation;
+        |Mobile or Web App|
+        :Start to use classroom;
+        repeat
+            :Check remain time and present it;
+        repeat while ()
+        -> Time ended;
+        :Request checkout reservation;
+        |Server with Database|
+        :Checkout classroom;
+        |Mobile or Web App|
+        :End to use classroom;
+
+    end split
+repeat while ()
+
+
+@enduml
+
+
+
