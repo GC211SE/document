@@ -15,7 +15,7 @@ rectangle "Gachon CRS" {
     usecase "Extend reservation time" as u23
 
     usecase "Check classroom time table" as u3
-    usecase "Check the user is gachon university student" as u4
+    usecase "Check the user is Gachon University student" as u4
     
 }
 
