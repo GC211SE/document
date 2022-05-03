@@ -1,0 +1,74 @@
+@startuml activity
+
+skinparam conditionStyle diamond
+
+
+start
+:Open app (Splash);
+
+repeat
+    if (have user ID and Password) then
+    
+    else (Don't have any data) 
+        :**Show Log In View**;
+        :Get user's ID and Password;
+    endif
+
+    :Check ID and Password is valid;
+    :Try to log in to\nGachon University homepage;
+
+    :Receive result data;
+repeat while (invalid)
+-> valid;
+
+repeat
+    split
+
+        :**Show Setting View**;
+        split
+            :User account setting;
+        split again
+            :Manage starred\nclassroom;
+        split again
+            :Look up previous\nreservation log;
+        end split
+
+    split again
+
+        :**Show Home View**;
+        if () then (empty)
+            :Search bar \nto find classroom;
+        else (Starred classroom is exist)
+            :Request Classroom data;
+            if ()
+            else (Timetable data was expired)
+                :Request all data of timetable;
+                :Crawl all timetable data;
+                :Refine timetable data and save to database;
+            endif
+            :Search and push classroom data;
+            :Show list of\nstarrd classroom's status;
+        endif
+        :Touch classroom;
+        :**Show Reservation view**\nShow classroom's timetable\nwith reservation status;
+        :Select classroom to reserve;
+        :Set time how many use the classroom;
+        :Request enroll reservation;
+        :Enroll reservation;
+        :Start to use classroom;
+        repeat
+            :Check remain time and present it;
+        repeat while ()
+        -> Time ended;
+        :Request checkout reservation;
+        :Checkout classroom;
+        :End to use classroom;
+
+    end split
+repeat while ()
+
+
+@enduml
+
+
+

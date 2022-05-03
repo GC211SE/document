@@ -1,0 +1,51 @@
+@startuml usecase
+
+left to right direction
+
+actor student as user
+actor "Gachon University" as univ #alicenblue;line:blue;
+
+rectangle "Gachon CRS" {
+    usecase "Check information of classroom" as u1
+    usecase "Check who is in the classroom" as u11
+
+    usecase "Reserve classroom" as u2
+    usecase "Check-in classroom" as u21
+    usecase "Check-out classroom" as u22
+    usecase "Extend reservation time" as u23
+
+    usecase "Check classroom time table" as u3
+    usecase "Check the user is Gachon University student" as u4
+    
+}
+
+rectangle "Gachon University" {
+    usecase "Maintain classroom" as u100 #alicenblue;line:blue;
+    usecase "User management" as u110 #alicenblue;line:blue;
+    usecase "Time table of lectures" as u120 #alicenblue;line:blue;
+}
+
+
+u1 .down.> u11 : <<extends>>
+u2 .down.> u21 : <<extends>>
+u2 .down.> u23 : <<extends>>
+u2 .down.> u22 : <<extends>>
+
+
+user -- u1
+user -- u2
+user -- u3
+user -- u4
+
+u100 -- univ #line:blue;
+u110 -- univ #line:blue;
+u120 -- univ #line:blue;
+
+u1 .right.> u3 : <<extends>>
+u3 .down.> u120 : <<extends>>
+u4 .down.> u110 : <<extends>>
+
+
+
+
+@enduml
